@@ -1,0 +1,24 @@
+package com.stargazerproject.features;
+
+import java.io.File;
+import java.io.IOException;
+
+import net.coobird.thumbnailator.Thumbnails;
+
+public class CreateThumbnail {
+	
+	public CreateThumbnail() {
+	}
+	
+	public void createThumbnailImage(){
+		try {
+			File originalFile = new File("original.jpg");
+			
+			File thumbnail = new File("thumbnail.jpg");
+			
+			Thumbnails.of(originalFile).size(160, 160).toFile(thumbnail);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

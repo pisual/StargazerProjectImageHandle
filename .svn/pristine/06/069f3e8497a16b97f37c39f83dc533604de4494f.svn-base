@@ -1,0 +1,20 @@
+package com.stargazerproject.file;
+
+public class StargazerFileException extends Exception{
+	public StargazerFileException(String exception) {
+		System.out.println("Stargazer Error : 已经捕获到异常事件,开始处理异常记录");
+		//Tudo
+		switch (exception) {
+		case "NotHasFile":
+			System.out.println("Stargazer Error : 原文件不存在");
+			break;
+		case "FileNameIsNull":
+			System.out.println("Stargazer Error : 文件参数为NULL");
+			break;
+		default:
+			break;
+		}
+		//Tudo
+		System.out.println("Stargazer Error : 已经捕获到异常事件，结束处理异常记录");
+	}
+}

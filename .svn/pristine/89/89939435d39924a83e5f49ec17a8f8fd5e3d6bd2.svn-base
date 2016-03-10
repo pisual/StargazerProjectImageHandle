@@ -1,0 +1,31 @@
+package com.stargazerproject.features;
+
+import java.io.File;
+import java.io.IOException;
+
+import net.coobird.thumbnailator.Thumbnails;
+
+import com.stargazerproject.file.StargazerFile;
+
+public class CreateThumbnail {
+	
+	public CreateThumbnail() {
+	}
+	
+	public void createThumbnailImage(){
+			StargazerFile originalFile = new StargazerFile();
+			StargazerFile thumbnail = new StargazerFile();
+			originalFile.readStargazerFile("/Users/Felixerio/Workspaces/StargazerProject/StargazerProjectImageHandle/src/com/stargazerproject/testFile/originalFile.jpg");
+			thumbnail.creatStargazerFile("/Users/Felixerio/Workspaces/StargazerProject/StargazerProjectImageHandle/src/com/stargazerproject/testFile/thumbnail.jpg");
+			if(Boolean.TRUE.equals(originalFile.isCreateSuccessState())&&Boolean.TRUE.equals(thumbnail.isCreateSuccessState())){
+				try {
+					Thumbnails.of(originalFile.getFile()).size(160, 160).toFile(thumbnail.getFile());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}}
+	}
+	public static void main(String[] args) {
+		CreateThumbnail createThumbnail = new CreateThumbnail();
+		createThumbnail.createThumbnailImage();
+	}
+}

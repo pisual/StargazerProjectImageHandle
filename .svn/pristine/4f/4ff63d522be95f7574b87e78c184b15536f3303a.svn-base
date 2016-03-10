@@ -1,0 +1,23 @@
+package com.stargazerproject.file;
+
+import java.io.File;
+
+public class StargazerFile{
+	private File file;
+	public File creatStargazerFile(String fileName) {
+		if(null==fileName){
+			try {
+				throw new StargazerFileException("FileNameIsNull");
+			} catch (StargazerFileException e) {}
+		}
+		else{
+			file = new File(fileName);
+			if(file.isDirectory()||file.exists()==Boolean.FALSE){
+				try {
+					throw new StargazerFileException("NotHasFile");
+				} catch (StargazerFileException e) {}
+			}
+		}
+		return file;
+	}
+}
